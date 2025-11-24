@@ -32,45 +32,56 @@
             margin-top: 0;
         }
 
-        /* Contenedor de links sociales */
         .social-links {
             margin-top: 30px;
         }
 
-        /* Estilo de cada link */
-        .social-links a {
-            display: inline-block;
-            margin: 0 10px;
+        .social-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 18px;
+            font-weight: bold;
             text-decoration: none;
-            color: #32CD32; /* verde limón */
-            font-size: 24px;
-            border: 2px solid black; /* contorno negro */
-            padding: 10px;
-            border-radius: 50%;
-            transition: transform 0.2s;
+            color: black;
+            background-color: #32CD32; /* verde limón */
+            border-radius: 25px;
+            border: 2px solid black;
+            transition: transform 0.2s, background-color 0.2s;
         }
 
-        .social-links a:hover {
-            transform: scale(1.2);
+        .social-button i {
+            margin-right: 10px;
+            font-size: 24px;
+        }
+
+        .social-button:hover {
+            transform: scale(1.05);
+            background-color: #2dbd2d;
         }
     </style>
-    <!-- FontAwesome para los logos -->
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <!-- Foto de perfil -->
     <img class="profile-img" src="https://raw.githubusercontent.com/aalvarez6236-ux/PAGINA-LINK-BIO/fdbb73bc6d9e839c067da1f6a174632a70897578/alejandro%20y%20thierry%203.jpeg" alt="Foto de perfil">
-
     <h1>Hola, soy Alberto</h1>
     <p>Bienvenido a mi blog 😎</p>
 
-    <!-- Links a redes sociales -->
     <div class="social-links">
-        <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
-        <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a class="social-button" href="https://www.instagram.com/afelandro" target="_blank">
+            <i class="fab fa-instagram"></i> @afelandro
+        </a>
+        <a class="social-button" href="https://www.facebook.com/afelandro" target="_blank">
+            <i class="fab fa-facebook-f"></i> afelandro
+        </a>
+        <a class="social-button" href="https://twitter.com/afelandro" target="_blank">
+            <i class="fab fa-twitter"></i> @afelandro
+        </a>
+        <a class="social-button" href="https://www.linkedin.com/in/afelandro" target="_blank">
+            <i class="fab fa-linkedin-in"></i> afelandro
+        </a>
     </div>
 </body>
-</html>
 </html>
