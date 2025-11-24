@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Blog</title>
+    <!-- Font Awesome CDN para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-p2F6Dl1pA1b0mU1tmOSy9Cx1lF2pRZRO1v/O7u7eQ+YwYUJl1Bx3A1GcgA+7+qDq4+G0cK6kq42h3LrHUXp3Aw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -35,17 +38,17 @@
         .social-links {
             margin-top: 30px;
             display: flex;
-            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 15px;
-            align-items: center;
         }
 
         .social-button {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 250px;
-            padding: 12px;
+            min-width: 220px;
+            padding: 12px 20px;
             font-size: 18px;
             font-weight: bold;
             text-decoration: none;
@@ -66,8 +69,14 @@
             transform: scale(1.05);
             background-color: #2dbd2d;
         }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .social-links {
+                flex-direction: column;
+            }
+        }
     </style>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <img class="profile-img" src="https://raw.githubusercontent.com/aalvarez6236-ux/PAGINA-LINK-BIO/fdbb73bc6d9e839c067da1f6a174632a70897578/alejandro%20y%20thierry%203.jpeg" alt="Foto de perfil">
@@ -90,3 +99,4 @@
     </div>
 </body>
 </html>
+
