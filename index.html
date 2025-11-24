@@ -29,13 +29,45 @@
         p {
             color: #666;
         }
+
+        /* Estilo de los links sociales */
+        .social-links {
+            margin-top: 30px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            text-decoration: none;
+            color: #32CD32; /* verde limón */
+            font-size: 24px;
+            border: 2px solid black; /* contorno negro */
+            padding: 10px;
+            border-radius: 50%;
+            transition: transform 0.2s;
+        }
+
+        .social-links a:hover {
+            transform: scale(1.2);
+        }
+
+        /* Opcional: íconos con FontAwesome */
     </style>
+    <!-- FontAwesome para los logos -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <!-- Foto de perfil -->
     <img class="profile-img" src="https://raw.githubusercontent.com/aalvarez6236-ux/PAGINA-LINK-BIO/fdbb73bc6d9e839c067da1f6a174632a70897578/alejandro%20y%20thierry%203.jpeg" alt="Foto de perfil">
 
     <h1>Hola, soy Alberto</h1>
     <p>Bienvenido a mi blog 😎</p>
+
+    <!-- Links a redes sociales -->
+    <div class="social-links">
+        <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+    </div>
 </body>
 </html>
