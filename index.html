@@ -11,104 +11,131 @@
 <style>
 
 body{
-    margin:0;
-    font-family:Arial, sans-serif;
-    background: linear-gradient(135deg,#2a2d64,#5a4ea3,#6f5dc9);
-    display:flex;
-    justify-content:center;
-    padding:30px 15px;
-    color:white;
+margin:0;
+font-family:Arial;
+background: radial-gradient(circle,#7a6dc4,#4b4f9e,#2b2b68);
+overflow:hidden;
+color:white;
 }
 
-/* CONTENEDOR */
+/* ===== SLIDER APP ===== */
+.slider{
+display:flex;
+width:200vw;
+height:100vh;
+transition:0.7s cubic-bezier(.7,0,.3,1);
+}
+
+.page{
+width:100vw;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
+box-sizing:border-box;
+}
+
+/* ===== CONTENEDOR ===== */
 .container{
-    width:100%;
-    max-width:420px;
-    background:rgba(255,255,255,0.08);
-    backdrop-filter: blur(15px);
-    border-radius:25px;
-    padding:25px;
-    text-align:center;
-    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+max-width:430px;
+width:100%;
+background:rgba(255,255,255,0.12);
+backdrop-filter:blur(14px);
+border-radius:25px;
+padding:25px;
+text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,.35);
 }
 
-/* FOTO PERFIL */
+/* FOTO */
+.profile-wrapper{
+display:flex;
+justify-content:center;
+margin-top:-120px;
+}
+
 .profile-img{
-    width:130px;
-    height:130px;
-    border-radius:50%;
-    object-fit:cover;
-    border:4px solid white;
-    margin-top:-60px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.4);
+width:170px;
+height:170px;
+border-radius:50%;
+border:5px solid white;
+object-fit:cover;
+box-shadow:
+0 0 0 8px rgba(255,255,255,.15),
+0 0 35px rgba(120,150,255,.8);
 }
 
-/* TITULOS */
-h1{
-    margin:15px 0 5px;
-    font-size:30px;
+/* TEXTO */
+h1{font-size:34px;margin:20px 0 5px;}
+.subtitle{font-size:22px;font-weight:bold;}
+
+/* BOTONES */
+.btn{
+margin-top:20px;
+padding:12px 22px;
+background:#ff3b3b;
+color:white;
+border:none;
+border-radius:30px;
+cursor:pointer;
+font-weight:bold;
 }
 
-.subtitle{
-    opacity:0.9;
-    margin-bottom:20px;
+/* ===== PAGINA 2 ===== */
+.ad-title{
+font-size:30px;
+font-weight:bold;
+margin-bottom:10px;
 }
 
-/* VIDEO */
-.video-box{
-    margin:20px 0;
-    border-radius:15px;
-    overflow:hidden;
-    box-shadow:0 5px 15px rgba(0,0,0,0.35);
+.ad-sub{
+opacity:.9;
+margin-bottom:25px;
 }
 
-iframe{
-    width:100%;
-    height:220px;
-    border:none;
+.ad-btn{
+display:inline-block;
+padding:14px 24px;
+border-radius:30px;
+background:linear-gradient(90deg,#ff3cac,#784ba0);
+color:white;
+text-decoration:none;
+font-weight:bold;
+font-size:18px;
+box-shadow:0 6px 18px rgba(0,0,0,.35);
+transition:0.3s;
 }
 
-/* BOTONES SOCIALES */
-.social-buttons{
-    display:flex;
-    flex-direction:column;
-    gap:12px;
-    margin-top:20px;
+.ad-btn:hover{transform:scale(1.05);}
+
+.back{
+background:white;
+color:#333;
+margin-top:20px;
 }
 
-.social-button{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:10px;
-    padding:12px;
-    border-radius:14px;
-    color:white;
-    text-decoration:none;
-    font-weight:bold;
-    transition:0.25s;
-    box-shadow:0 4px 10px rgba(0,0,0,0.25);
+/* ===== INDICADORES STORIES ===== */
+.indicators{
+position:absolute;
+bottom:25px;
+width:100%;
+display:flex;
+justify-content:center;
+gap:10px;
 }
 
-.social-button:hover{
-    transform:translateY(-3px);
+.dot{
+width:10px;
+height:10px;
+border-radius:50%;
+background:rgba(255,255,255,0.4);
+transition:.4s;
 }
 
-/* COLORES */
-.instagram{background:linear-gradient(90deg,#ff3cac,#784ba0);}
-.facebook{background:linear-gradient(90deg,#1877f2,#4267B2);}
-.tiktok{background:linear-gradient(90deg,#000,#2c2c2c);}
-.linkedin{background:linear-gradient(90deg,#0077b5,#0099ff);}
-.youtube{
-    background:linear-gradient(90deg,#ff0000,#ff3b3b);
-    box-shadow:0 0 15px rgba(255,0,0,0.6);
-}
-
-/* FOOTER */
-.footer{
-    margin-top:20px;
-    font-size:14px;
-    opacity:0.85;
+.dot.active{
+width:28px;
+border-radius:20px;
+background:white;
 }
 
 </style>
@@ -116,49 +143,72 @@ iframe{
 
 <body>
 
+<div class="slider" id="slider">
+
+<!-- ===== PANTALLA 1 ===== -->
+<div class="page">
 <div class="container">
 
+<div class="profile-wrapper">
 <img class="profile-img"
-src="https://raw.githubusercontent.com/aalvarez6236-ux/PAGINA-LINK-BIO/main/cd92f946-3978-4fbc-b4e7-9f0fc1008f44.png"
-alt="Perfil">
+src="https://raw.githubusercontent.com/aalvarez6236-ux/PAGINA-LINK-BIO/main/cd92f946-3978-4fbc-b4e7-9f0fc1008f44.png">
+</div>
 
 <h1>Hola, soy Afelandro 🚀</h1>
 <p class="subtitle">Bienvenido a mi mundo</p>
 
-<!-- VIDEO DESTACADO -->
-<div class="video-box">
-<iframe src="https://www.youtube.com/embed?listType=user_uploads&list=afelandro4578" allowfullscreen></iframe>
-</div>
-
-<div class="social-buttons">
-
-<a href="https://www.instagram.com/afelandro2396/" class="social-button instagram" target="_blank">
-<i class="fab fa-instagram"></i> Sígueme en Instagram
-</a>
-
-<a href="https://www.facebook.com/afelandro2396/" class="social-button facebook" target="_blank">
-<i class="fab fa-facebook"></i> Facebook
-</a>
-
-<a href="https://www.tiktok.com/@alejandrojuarez03" class="social-button tiktok" target="_blank">
-<i class="fab fa-tiktok"></i> TikTok
-</a>
-
-<a href="https://www.linkedin.com/in/alejandro-alberto-juarez-alvarez-803275123/" class="social-button linkedin" target="_blank">
-<i class="fab fa-linkedin"></i> LinkedIn
-</a>
-
-<a href="https://www.youtube.com/@afelandro4578" class="social-button youtube" target="_blank">
-<i class="fab fa-youtube"></i> ¡Suscríbete en YouTube!
-</a>
+<button class="btn" onclick="nextPage()">Ver Publicidad ➡️</button>
 
 </div>
+</div>
 
-<div class="footer">
-Contenido exclusivo y más en YouTube ❤️
+<!-- ===== PANTALLA 2 ===== -->
+<div class="page">
+<div class="container">
+
+<div class="ad-title">🔥 Publicidad</div>
+<div class="ad-sub">Páginas que recomiendo 👇</div>
+
+<a class="ad-btn"
+href="https://creativetouchshop.com/"
+target="_blank">
+🌐 CreativeTouchShop
+</a>
+
+<br>
+
+<button class="btn back" onclick="prevPage()">⬅️ Volver</button>
+
+</div>
 </div>
 
 </div>
+
+<!-- ===== INDICADORES ===== -->
+<div class="indicators">
+<div class="dot active" id="dot1"></div>
+<div class="dot" id="dot2"></div>
+</div>
+
+<script>
+
+let slider=document.getElementById("slider");
+let dot1=document.getElementById("dot1");
+let dot2=document.getElementById("dot2");
+
+function nextPage(){
+slider.style.transform="translateX(-100vw)";
+dot1.classList.remove("active");
+dot2.classList.add("active");
+}
+
+function prevPage(){
+slider.style.transform="translateX(0)";
+dot2.classList.remove("active");
+dot1.classList.add("active");
+}
+
+</script>
 
 </body>
 </html>
