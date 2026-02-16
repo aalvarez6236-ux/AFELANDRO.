@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Afelandro | Creator Hub</title>
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
@@ -18,21 +17,29 @@ overflow:hidden;
 color:white;
 }
 
-/* ===== SLIDER APP ===== */
+/* ===== SLIDER PREMIUM ===== */
 .slider{
 display:flex;
 width:200vw;
 height:100vh;
-transition:0.7s cubic-bezier(.7,0,.3,1);
+transition:0.8s cubic-bezier(.22,1,.36,1); /* elastic feel */
+will-change:transform;
 }
 
 .page{
 width:100vw;
+overflow-y:auto;
 display:flex;
 justify-content:center;
-align-items:center;
 padding:20px;
 box-sizing:border-box;
+transition:0.5s;
+}
+
+/* BLUR DINAMICO */
+.page.blur{
+filter:blur(3px);
+transform:scale(.97);
 }
 
 /* ===== CONTENEDOR ===== */
@@ -65,9 +72,54 @@ box-shadow:
 0 0 35px rgba(120,150,255,.8);
 }
 
-/* TEXTO */
 h1{font-size:34px;margin:20px 0 5px;}
 .subtitle{font-size:22px;font-weight:bold;}
+
+/* VIDEO */
+.video{
+margin:20px 0;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 8px 20px rgba(0,0,0,.4);
+}
+
+iframe{
+width:100%;
+height:230px;
+border:none;
+}
+
+/* REDES */
+.social{
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+.btn-social{
+padding:12px;
+border-radius:25px;
+text-decoration:none;
+color:white;
+font-weight:bold;
+display:flex;
+justify-content:center;
+gap:10px;
+transition:.3s;
+}
+
+.btn-social:hover{
+transform:scale(1.03);
+}
+
+.instagram{background:linear-gradient(90deg,#ff3cac,#d85eff);}
+.facebook{background:linear-gradient(90deg,#2f7fff,#54d2ff);}
+.tiktok{background:linear-gradient(90deg,#000,#333);}
+.linkedin{background:linear-gradient(90deg,#0a66c2,#1da1ff);}
+.youtube{
+background:linear-gradient(90deg,#ff0000,#ff3b3b);
+box-shadow:0 0 15px rgba(255,0,0,.8);
+}
 
 /* BOTONES */
 .btn{
@@ -79,45 +131,31 @@ border:none;
 border-radius:30px;
 cursor:pointer;
 font-weight:bold;
+transition:.3s;
 }
 
-/* ===== PAGINA 2 ===== */
-.ad-title{
-font-size:30px;
-font-weight:bold;
-margin-bottom:10px;
-}
+.btn:hover{transform:scale(1.05);}
 
-.ad-sub{
-opacity:.9;
-margin-bottom:25px;
-}
-
+/* PAGINA 2 */
+.ad-title{font-size:30px;margin-top:30px;}
 .ad-btn{
 display:inline-block;
+margin-top:20px;
 padding:14px 24px;
 border-radius:30px;
 background:linear-gradient(90deg,#ff3cac,#784ba0);
 color:white;
 text-decoration:none;
 font-weight:bold;
-font-size:18px;
-box-shadow:0 6px 18px rgba(0,0,0,.35);
-transition:0.3s;
+box-shadow:0 6px 15px rgba(0,0,0,.35);
+transition:.3s;
 }
-
 .ad-btn:hover{transform:scale(1.05);}
 
-.back{
-background:white;
-color:#333;
-margin-top:20px;
-}
-
-/* ===== INDICADORES STORIES ===== */
+/* INDICADORES */
 .indicators{
-position:absolute;
-bottom:25px;
+position:fixed;
+bottom:20px;
 width:100%;
 display:flex;
 justify-content:center;
@@ -128,8 +166,8 @@ gap:10px;
 width:10px;
 height:10px;
 border-radius:50%;
-background:rgba(255,255,255,0.4);
-transition:.4s;
+background:rgba(255,255,255,.4);
+transition:.3s;
 }
 
 .dot.active{
@@ -145,8 +183,8 @@ background:white;
 
 <div class="slider" id="slider">
 
-<!-- ===== PANTALLA 1 ===== -->
-<div class="page">
+<!-- PANTALLA 1 -->
+<div class="page" id="page0">
 <div class="container">
 
 <div class="profile-wrapper">
@@ -157,17 +195,28 @@ src="https://raw.githubusercontent.com/aalvarez6236-ux/PAGINA-LINK-BIO/main/cd92
 <h1>Hola, soy Afelandro 🚀</h1>
 <p class="subtitle">Bienvenido a mi mundo</p>
 
-<button class="btn" onclick="nextPage()">Ver Publicidad ➡️</button>
+<div class="video">
+<iframe src="https://www.youtube.com/embed/Pkvwv_Q50tk" allowfullscreen></iframe>
+</div>
+
+<div class="social">
+<a class="btn-social instagram" href="#">Instagram</a>
+<a class="btn-social facebook" href="#">Facebook</a>
+<a class="btn-social tiktok" href="#">TikTok</a>
+<a class="btn-social linkedin" href="#">LinkedIn</a>
+<a class="btn-social youtube" href="#">YouTube</a>
+</div>
+
+<button class="btn" onclick="goTo(1)">Ver Publicidad ➡️</button>
 
 </div>
 </div>
 
-<!-- ===== PANTALLA 2 ===== -->
-<div class="page">
+<!-- PANTALLA 2 -->
+<div class="page" id="page1">
 <div class="container">
 
-<div class="ad-title">🔥 Publicidad</div>
-<div class="ad-sub">Páginas que recomiendo 👇</div>
+<h1 class="ad-title">🔥 Publicidad</h1>
 
 <a class="ad-btn"
 href="https://creativetouchshop.com/"
@@ -176,39 +225,55 @@ target="_blank">
 </a>
 
 <br>
-
-<button class="btn back" onclick="prevPage()">⬅️ Volver</button>
-
-</div>
-</div>
+<button class="btn" onclick="goTo(0)">⬅️ Volver</button>
 
 </div>
+</div>
 
-<!-- ===== INDICADORES ===== -->
+</div>
+
 <div class="indicators">
-<div class="dot active" id="dot1"></div>
-<div class="dot" id="dot2"></div>
+<div class="dot active" id="dot0"></div>
+<div class="dot" id="dot1"></div>
 </div>
 
 <script>
 
 let slider=document.getElementById("slider");
-let dot1=document.getElementById("dot1");
-let dot2=document.getElementById("dot2");
+let pages=[document.getElementById("page0"),document.getElementById("page1")];
+let current=0;
 
-function nextPage(){
-slider.style.transform="translateX(-100vw)";
-dot1.classList.remove("active");
-dot2.classList.add("active");
+function goTo(page){
+pages[current].classList.add("blur");
+current=page;
+
+slider.style.transform=`translateX(-${page*100}vw)`;
+
+setTimeout(()=>{
+pages.forEach(p=>p.classList.remove("blur"));
+},400);
+
+document.getElementById("dot0").classList.toggle("active",page===0);
+document.getElementById("dot1").classList.toggle("active",page===1);
 }
 
-function prevPage(){
-slider.style.transform="translateX(0)";
-dot2.classList.remove("active");
-dot1.classList.add("active");
-}
+/* SWIPE iPHONE STYLE */
+let startX=0;
+
+slider.addEventListener("touchstart",e=>{
+startX=e.touches[0].clientX;
+});
+
+slider.addEventListener("touchend",e=>{
+let endX=e.changedTouches[0].clientX;
+let diff=startX-endX;
+
+if(diff>60 && current===0) goTo(1);
+if(diff<-60 && current===1) goTo(0);
+});
 
 </script>
 
 </body>
 </html>
+
