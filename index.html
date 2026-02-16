@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Afelandro | Creator Hub</title>
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
@@ -36,16 +36,23 @@ padding:15px;
 box-sizing:border-box;
 }
 
-/* CONTENIDO SCROLL INTERNO */
+/* ===== CONTENIDO ===== */
 .content{
 width:100%;
 max-width:430px;
 height:90vh;
 overflow-y:auto;
 padding-top:70px;
+
+scrollbar-width:none;
+-ms-overflow-style:none;
 }
 
-/* TARJETA */
+.content::-webkit-scrollbar{
+display:none;
+}
+
+/* ===== TARJETA ===== */
 .container{
 background:rgba(255,255,255,0.12);
 backdrop-filter:blur(14px);
@@ -72,8 +79,8 @@ box-shadow:0 0 30px rgba(120,150,255,.8);
 }
 
 /* TEXTOS */
-h1{font-size:45px;margin:15px 0 5px;}
-.subtitle{font-size:34px;font-weight:bold;}
+h1{font-size:38px;margin:15px 0 5px;}
+.subtitle{font-size:22px;font-weight:bold;}
 
 /* VIDEO */
 .video{
@@ -127,8 +134,9 @@ font-weight:bold;
 cursor:pointer;
 }
 
-/* PAGINA 2 */
+/* ===== PAGINA 2 ===== */
 .ad-title{font-size:30px;}
+
 .ad-btn{
 display:inline-block;
 margin-top:20px;
@@ -140,7 +148,7 @@ text-decoration:none;
 font-weight:bold;
 }
 
-/* INDICADORES */
+/* ===== INDICADORES ===== */
 .indicators{
 position:fixed;
 bottom:20px;
@@ -162,6 +170,55 @@ transition:.3s;
 width:28px;
 border-radius:20px;
 background:white;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width:768px){
+
+.content{
+height:95vh;
+padding-top:50px;
+}
+
+.profile-img{
+width:140px;
+height:140px;
+}
+
+h1{font-size:32px;}
+.subtitle{font-size:20px;}
+
+iframe{height:200px;}
+}
+
+@media (max-width:400px){
+
+.profile-img{
+width:120px;
+height:120px;
+}
+
+h1{font-size:28px;}
+.subtitle{font-size:18px;}
+
+iframe{height:180px;}
+
+.btn-social{
+font-size:14px;
+padding:10px;
+}
+}
+
+@media (min-width:1200px){
+
+.content{
+max-width:460px;
+}
+
+h1{font-size:42px;}
+.subtitle{font-size:26px;}
+
 }
 
 </style>
@@ -189,11 +246,11 @@ src="https://raw.githubusercontent.com/aalvarez6236-ux/PAGINA-LINK-BIO/main/cd92
 </div>
 
 <div class="social">
-<a class="btn-social instagram" href="#">Instagram</a>
-<a class="btn-social facebook" href="#">Facebook</a>
-<a class="btn-social tiktok" href="#">TikTok</a>
-<a class="btn-social linkedin" href="#">LinkedIn</a>
-<a class="btn-social youtube" href="#">YouTube</a>
+<a class="btn-social instagram" href="https://www.instagram.com/afelandro2396/" target="_blank">Instagram</a>
+<a class="btn-social facebook" href="https://www.facebook.com/afelandro2396/" target="_blank">Facebook</a>
+<a class="btn-social tiktok" href="https://www.tiktok.com/@alejandrojuarez03" target="_blank">TikTok</a>
+<a class="btn-social linkedin" href="https://www.linkedin.com/in/alejandro-alberto-juarez-alvarez-803275123/" target="_blank">LinkedIn</a>
+<a class="btn-social youtube" href="https://www.youtube.com/@afelandro4578" target="_blank">YouTube</a>
 </div>
 
 <button class="btn" onclick="goTo(1)">Ver Publicidad ➡️</button>
@@ -209,9 +266,7 @@ src="https://raw.githubusercontent.com/aalvarez6236-ux/PAGINA-LINK-BIO/main/cd92
 
 <h1 class="ad-title">🔥 Publicidad</h1>
 
-<a class="ad-btn"
-href="https://creativetouchshop.com/"
-target="_blank">
+<a class="ad-btn" href="https://creativetouchshop.com/" target="_blank">
 🌐 CreativeTouchShop
 </a>
 
@@ -241,7 +296,7 @@ document.getElementById("dot0").classList.toggle("active",p===0);
 document.getElementById("dot1").classList.toggle("active",p===1);
 }
 
-/* SWIPE */
+/* SWIPE MOVIL */
 let startX=0;
 
 slider.addEventListener("touchstart",e=>{
