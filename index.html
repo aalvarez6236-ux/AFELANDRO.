@@ -1,83 +1,164 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Blog</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 0;
-            padding: 20px;
-        }
-        .profile-img {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 15px;
-            border: 4px solid #ffffff;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-        }
-        h1, p {
-            text-align: center;
-        }
-        .social-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-top: 20px;
-            width: 260px;
-        }
-        .social-button {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            background: linear-gradient(135deg, #9dd9ff, #6fc4ff);
-            color: #fff;
-            padding: 12px 15px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 16px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-            transition: 0.25s ease;
-        }
-        .social-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 14px rgba(0,0,0,0.25);
-        }
-        .social-button i {
-            font-size: 20px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Afelandro | Creator Hub</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background: linear-gradient(135deg,#2a2d64,#5a4ea3,#6f5dc9);
+    display:flex;
+    justify-content:center;
+    padding:30px 15px;
+    color:white;
+}
+
+/* CONTENEDOR */
+.container{
+    width:100%;
+    max-width:420px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter: blur(15px);
+    border-radius:25px;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* FOTO PERFIL */
+.profile-img{
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    object-fit:cover;
+    border:4px solid white;
+    margin-top:-60px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.4);
+}
+
+/* TITULOS */
+h1{
+    margin:15px 0 5px;
+    font-size:30px;
+}
+
+.subtitle{
+    opacity:0.9;
+    margin-bottom:20px;
+}
+
+/* VIDEO */
+.video-box{
+    margin:20px 0;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,0.35);
+}
+
+iframe{
+    width:100%;
+    height:220px;
+    border:none;
+}
+
+/* BOTONES SOCIALES */
+.social-buttons{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    margin-top:20px;
+}
+
+.social-button{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    padding:12px;
+    border-radius:14px;
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    transition:0.25s;
+    box-shadow:0 4px 10px rgba(0,0,0,0.25);
+}
+
+.social-button:hover{
+    transform:translateY(-3px);
+}
+
+/* COLORES */
+.instagram{background:linear-gradient(90deg,#ff3cac,#784ba0);}
+.facebook{background:linear-gradient(90deg,#1877f2,#4267B2);}
+.tiktok{background:linear-gradient(90deg,#000,#2c2c2c);}
+.linkedin{background:linear-gradient(90deg,#0077b5,#0099ff);}
+.youtube{
+    background:linear-gradient(90deg,#ff0000,#ff3b3b);
+    box-shadow:0 0 15px rgba(255,0,0,0.6);
+}
+
+/* FOOTER */
+.footer{
+    margin-top:20px;
+    font-size:14px;
+    opacity:0.85;
+}
+
+</style>
 </head>
+
 <body>
 
-    <img class="profile-img" src="https://raw.githubusercontent.com/aalvarez6236-ux/PAGINA-LINK-BIO/fdbb73bc6d9e839c067da1f6a174632a70897578/alejandro%20y%20thierry%203.jpeg" alt="Foto de perfil">
-    <h1>Hola, soy Alberto</h1>
-    <p>Bienvenido a mi blog 😎</p>
+<div class="container">
 
-    <div class="social-buttons">
-        <a href="https://www.instagram.com/afelandro2396/" class="social-button" target="_blank">
-            <i class="fab fa-instagram"></i> @afelandro
-        </a>
-        <a href="https://www.facebook.com/afelandro2396/" class="social-button" target="_blank">
-            <i class="fab fa-facebook"></i> afelandro
-        </a>
-        <a href="https://www.tiktok.com/@alejandrojuarez03" class="social-button" target="_blank">
-            <i class="fab fa-tiktok"></i> @afelandro
-        </a>
-        <a href="https://www.linkedin.com/in/alejandro-alberto-juarez-alvarez-803275123/" class="social-button" target="_blank">
-            <i class="fab fa-linkedin"></i> afelandro
-        </a>
-    </div>
+<img class="profile-img"
+src="https://raw.githubusercontent.com/aalvarez6236-ux/PAGINA-LINK-BIO/main/cd92f946-3978-4fbc-b4e7-9f0fc1008f44.png"
+alt="Perfil">
+
+<h1>Hola, soy Afelandro 🚀</h1>
+<p class="subtitle">Bienvenido a mi mundo</p>
+
+<!-- VIDEO DESTACADO -->
+<div class="video-box">
+<iframe src="https://www.youtube.com/embed?listType=user_uploads&list=afelandro4578" allowfullscreen></iframe>
+</div>
+
+<div class="social-buttons">
+
+<a href="https://www.instagram.com/afelandro2396/" class="social-button instagram" target="_blank">
+<i class="fab fa-instagram"></i> Sígueme en Instagram
+</a>
+
+<a href="https://www.facebook.com/afelandro2396/" class="social-button facebook" target="_blank">
+<i class="fab fa-facebook"></i> Facebook
+</a>
+
+<a href="https://www.tiktok.com/@alejandrojuarez03" class="social-button tiktok" target="_blank">
+<i class="fab fa-tiktok"></i> TikTok
+</a>
+
+<a href="https://www.linkedin.com/in/alejandro-alberto-juarez-alvarez-803275123/" class="social-button linkedin" target="_blank">
+<i class="fab fa-linkedin"></i> LinkedIn
+</a>
+
+<a href="https://www.youtube.com/@afelandro4578" class="social-button youtube" target="_blank">
+<i class="fab fa-youtube"></i> ¡Suscríbete en YouTube!
+</a>
+
+</div>
+
+<div class="footer">
+Contenido exclusivo y más en YouTube ❤️
+</div>
+
+</div>
 
 </body>
 </html>
-
