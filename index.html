@@ -17,39 +17,40 @@ overflow:hidden;
 color:white;
 }
 
-/* ===== SLIDER PREMIUM ===== */
+/* ===== SLIDER ===== */
 .slider{
 display:flex;
 width:200vw;
 height:100vh;
-transition:0.8s cubic-bezier(.22,1,.36,1); /* elastic feel */
-will-change:transform;
+transition:0.6s cubic-bezier(.22,1,.36,1);
 }
 
 .page{
 width:100vw;
-overflow-y:auto;
+height:100vh;
 display:flex;
 justify-content:center;
-padding:20px;
+align-items:center;
+overflow:hidden;
+padding:15px;
 box-sizing:border-box;
-transition:0.5s;
 }
 
-/* BLUR DINAMICO */
-.page.blur{
-filter:blur(3px);
-transform:scale(.97);
-}
-
-/* ===== CONTENEDOR ===== */
-.container{
-max-width:430px;
+/* CONTENIDO SCROLL INTERNO */
+.content{
 width:100%;
+max-width:430px;
+height:90vh;
+overflow-y:auto;
+padding-top:70px;
+}
+
+/* TARJETA */
+.container{
 background:rgba(255,255,255,0.12);
 backdrop-filter:blur(14px);
 border-radius:25px;
-padding:25px;
+padding:20px;
 text-align:center;
 box-shadow:0 10px 30px rgba(0,0,0,.35);
 }
@@ -58,34 +59,32 @@ box-shadow:0 10px 30px rgba(0,0,0,.35);
 .profile-wrapper{
 display:flex;
 justify-content:center;
-margin-top:-120px;
+margin-top:-90px;
 }
 
 .profile-img{
-width:170px;
-height:170px;
+width:160px;
+height:160px;
 border-radius:50%;
 border:5px solid white;
 object-fit:cover;
-box-shadow:
-0 0 0 8px rgba(255,255,255,.15),
-0 0 35px rgba(120,150,255,.8);
+box-shadow:0 0 30px rgba(120,150,255,.8);
 }
 
-h1{font-size:34px;margin:20px 0 5px;}
-.subtitle{font-size:22px;font-weight:bold;}
+/* TEXTOS */
+h1{font-size:45px;margin:15px 0 5px;}
+.subtitle{font-size:34px;font-weight:bold;}
 
 /* VIDEO */
 .video{
-margin:20px 0;
+margin:15px 0;
 border-radius:15px;
 overflow:hidden;
-box-shadow:0 8px 20px rgba(0,0,0,.4);
 }
 
 iframe{
 width:100%;
-height:230px;
+height:220px;
 border:none;
 }
 
@@ -105,11 +104,6 @@ font-weight:bold;
 display:flex;
 justify-content:center;
 gap:10px;
-transition:.3s;
-}
-
-.btn-social:hover{
-transform:scale(1.03);
 }
 
 .instagram{background:linear-gradient(90deg,#ff3cac,#d85eff);}
@@ -118,26 +112,23 @@ transform:scale(1.03);
 .linkedin{background:linear-gradient(90deg,#0a66c2,#1da1ff);}
 .youtube{
 background:linear-gradient(90deg,#ff0000,#ff3b3b);
-box-shadow:0 0 15px rgba(255,0,0,.8);
+box-shadow:0 0 12px rgba(255,0,0,.8);
 }
 
 /* BOTONES */
 .btn{
-margin-top:20px;
+margin-top:15px;
 padding:12px 22px;
 background:#ff3b3b;
 color:white;
 border:none;
 border-radius:30px;
-cursor:pointer;
 font-weight:bold;
-transition:.3s;
+cursor:pointer;
 }
 
-.btn:hover{transform:scale(1.05);}
-
 /* PAGINA 2 */
-.ad-title{font-size:30px;margin-top:30px;}
+.ad-title{font-size:30px;}
 .ad-btn{
 display:inline-block;
 margin-top:20px;
@@ -147,10 +138,7 @@ background:linear-gradient(90deg,#ff3cac,#784ba0);
 color:white;
 text-decoration:none;
 font-weight:bold;
-box-shadow:0 6px 15px rgba(0,0,0,.35);
-transition:.3s;
 }
-.ad-btn:hover{transform:scale(1.05);}
 
 /* INDICADORES */
 .indicators{
@@ -183,8 +171,9 @@ background:white;
 
 <div class="slider" id="slider">
 
-<!-- PANTALLA 1 -->
-<div class="page" id="page0">
+<!-- ===== PANTALLA 1 ===== -->
+<div class="page">
+<div class="content">
 <div class="container">
 
 <div class="profile-wrapper">
@@ -211,9 +200,11 @@ src="https://raw.githubusercontent.com/aalvarez6236-ux/PAGINA-LINK-BIO/main/cd92
 
 </div>
 </div>
+</div>
 
-<!-- PANTALLA 2 -->
-<div class="page" id="page1">
+<!-- ===== PANTALLA 2 ===== -->
+<div class="page">
+<div class="content">
 <div class="container">
 
 <h1 class="ad-title">🔥 Publicidad</h1>
@@ -229,6 +220,7 @@ target="_blank">
 
 </div>
 </div>
+</div>
 
 </div>
 
@@ -240,24 +232,16 @@ target="_blank">
 <script>
 
 let slider=document.getElementById("slider");
-let pages=[document.getElementById("page0"),document.getElementById("page1")];
 let current=0;
 
-function goTo(page){
-pages[current].classList.add("blur");
-current=page;
-
-slider.style.transform=`translateX(-${page*100}vw)`;
-
-setTimeout(()=>{
-pages.forEach(p=>p.classList.remove("blur"));
-},400);
-
-document.getElementById("dot0").classList.toggle("active",page===0);
-document.getElementById("dot1").classList.toggle("active",page===1);
+function goTo(p){
+current=p;
+slider.style.transform=`translateX(-${p*100}vw)`;
+document.getElementById("dot0").classList.toggle("active",p===0);
+document.getElementById("dot1").classList.toggle("active",p===1);
 }
 
-/* SWIPE iPHONE STYLE */
+/* SWIPE */
 let startX=0;
 
 slider.addEventListener("touchstart",e=>{
