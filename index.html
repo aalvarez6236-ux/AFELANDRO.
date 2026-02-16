@@ -11,13 +11,14 @@
 
 body{
 margin:0;
-font-family:Arial;
+font-family:Arial, sans-serif;
 background: radial-gradient(circle,#7a6dc4,#4b4f9e,#2b2b68);
-overflow:hidden;
+overflow-x:hidden;
+overflow-y:auto;
 color:white;
 }
 
-/* ================= FONDO CREATOR ================= */
+/* ===== FONDO BOLITAS ===== */
 
 .floating-bg{
 position:fixed;
@@ -25,7 +26,6 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-overflow:hidden;
 z-index:-1;
 pointer-events:none;
 }
@@ -38,10 +38,9 @@ background:linear-gradient(45deg,#ff8c00,#ffb347);
 border-radius:50%;
 opacity:.6;
 filter:blur(1px);
-animation:freeBall 18s ease-in-out infinite alternate;
+animation:freeBall 20s ease-in-out infinite alternate;
 }
 
-/* posiciones iniciales distintas */
 .floating-bg span:nth-child(1){top:10%;left:20%;animation-duration:18s;}
 .floating-bg span:nth-child(2){top:70%;left:15%;animation-duration:22s;}
 .floating-bg span:nth-child(3){top:40%;left:80%;animation-duration:20s;}
@@ -57,47 +56,44 @@ animation:freeBall 18s ease-in-out infinite alternate;
 100% {transform:translate(-120px,-100px);}
 }
 
-/* ================= SLIDER ================= */
+/* ===== SLIDER ===== */
 
 .slider{
 display:flex;
 width:200vw;
-height:100vh;
 transition:0.6s cubic-bezier(.22,1,.36,1);
 }
 
 .page{
 width:100vw;
-height:100vh;
+min-height:100vh;
 display:flex;
 justify-content:center;
-align-items:center;
-padding:15px;
+align-items:flex-start;
+padding:20px 15px 80px 15px;
 box-sizing:border-box;
 }
 
 .content{
 width:100%;
 max-width:420px;
-height:92vh;
-overflow-y:auto;
-padding-top:50px;
-scrollbar-width:none;
--ms-overflow-style:none;
+padding-top:80px;
+padding-bottom:60px;
+box-sizing:border-box;
 }
 
-.content::-webkit-scrollbar{display:none;}
+/* ===== CONTENEDOR ===== */
 
 .container{
 background:rgba(255,255,255,0.12);
 backdrop-filter:blur(14px);
 border-radius:25px;
-padding:18px;
+padding:20px;
 text-align:center;
 box-shadow:0 10px 30px rgba(0,0,0,.3);
 }
 
-/* ================= FOTO ================= */
+/* ===== FOTO ===== */
 
 @keyframes breathingGlow{
 0%,100%{box-shadow:0 0 20px rgba(120,150,255,.6);}
@@ -107,87 +103,79 @@ box-shadow:0 10px 30px rgba(0,0,0,.3);
 .profile-wrapper{
 display:flex;
 justify-content:center;
-margin-top:-70px;
+margin-top:-50px;
 }
 
 .profile-img{
-width:140px;
-height:140px;
+width:130px;
+height:130px;
 border-radius:50%;
 border:4px solid white;
 object-fit:contain;
 background:#fff;
 animation:breathingGlow 3.5s ease-in-out infinite;
 transition:.3s;
-cursor:pointer;
 }
 
 .profile-img:hover{
 transform:scale(1.05);
 }
 
-/* ================= TEXTOS ================= */
+/* ===== TEXTOS ===== */
 
 h1{
-font-size:34px;
-margin:12px 0 5px;
+font-size:30px;
+margin:15px 0 5px;
 }
 
 .subtitle{
-font-size:20px;
+font-size:18px;
 font-weight:bold;
-margin-bottom:6px;
+margin-bottom:5px;
 }
 
 .creator-text{
-font-size:16px;
+font-size:15px;
 opacity:.9;
 min-height:24px;
-margin-bottom:12px;
+margin-bottom:15px;
 }
 
-/* ================= VIDEO ================= */
+/* ===== VIDEO ===== */
 
 .video{
-margin:12px 0;
+margin:15px 0;
 border-radius:14px;
 overflow:hidden;
 }
 
 iframe{
 width:100%;
-height:210px;
+height:200px;
 border:none;
 }
 
-/* ================= BOTONES ================= */
-
-@keyframes buttonPop{
-0%{opacity:0;transform:scale(.85);}
-100%{opacity:1;transform:scale(1);}
-}
+/* ===== BOTONES ===== */
 
 .social{
 display:flex;
 flex-direction:column;
-gap:9px;
+gap:10px;
 }
 
 .btn-social,
 .btn{
-animation:buttonPop .7s ease;
 transition:.3s;
 }
 
 .btn-social{
-padding:11px;
-border-radius:22px;
+padding:12px;
+border-radius:25px;
 text-decoration:none;
 color:white;
 font-weight:bold;
 display:flex;
 justify-content:center;
-gap:10px;
 }
 
 .btn-social:hover,
@@ -202,8 +190,8 @@ transform:scale(1.05);
 .youtube{background:linear-gradient(90deg,#ff0000,#ff3b3b);}
 
 .btn{
-margin-top:10px;
-padding:10px 20px;
+margin-top:15px;
+padding:12px;
 background:#ff3b3b;
 color:white;
 border:none;
@@ -212,17 +200,15 @@ font-weight:bold;
 cursor:pointer;
 }
 
-/* ================= PUBLICIDAD ================= */
+/* ===== PUBLICIDAD ===== */
 
-.ad-title{font-size:28px;}
+.ad-title{font-size:26px;}
 
 .ad-logo{
 width:140px;
-max-width:80%;
-margin:18px auto;
+margin:20px auto;
 display:block;
 border-radius:14px;
-cursor:pointer;
 transition:.3s;
 }
 
@@ -230,7 +216,7 @@ transition:.3s;
 transform:scale(1.05);
 }
 
-/* ================= INDICADORES ================= */
+/* ===== INDICADORES ===== */
 
 .indicators{
 position:fixed;
@@ -255,12 +241,10 @@ border-radius:20px;
 background:white;
 }
 
-/* Responsive */
 @media(max-width:480px){
-h1{font-size:28px;}
-.subtitle{font-size:18px;}
-.profile-img{width:120px;height:120px;}
-iframe{height:190px;}
+.profile-wrapper{margin-top:-40px;}
+h1{font-size:26px;}
+iframe{height:180px;}
 }
 
 </style>
@@ -300,7 +284,7 @@ src="https://raw.githubusercontent.com/aalvarez6236-ux/PAGINA-LINK-BIO/main/cd92
 <a class="btn-social linkedin" href="https://www.linkedin.com/in/alejandro-alberto-juarez-alvarez-803275123/" target="_blank">LinkedIn</a>
 <a class="btn-social youtube" href="https://www.youtube.com/@afelandro4578" target="_blank">YouTube</a>
 
-<a class="btn" href="mailto:afelandrochisme@gmail.com?subject=Quiero enviarte mi historia&body=Hola Afelandro, quiero compartir mi historia contigo:">
+<a class="btn" href="mailto:afelandrochisme@gmail.com?subject=Quiero enviarte mi historia">
 ✉️ Enviar tu historia
 </a>
 </div>
