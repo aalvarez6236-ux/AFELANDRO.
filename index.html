@@ -14,7 +14,6 @@ margin:0;
 font-family:Arial, sans-serif;
 background: radial-gradient(circle,#7a6dc4,#4b4f9e,#2b2b68);
 overflow-x:hidden;
-overflow-y:auto;
 color:white;
 }
 
@@ -41,12 +40,12 @@ filter:blur(1px);
 animation:freeBall 20s ease-in-out infinite alternate;
 }
 
-.floating-bg span:nth-child(1){top:10%;left:20%;animation-duration:18s;}
-.floating-bg span:nth-child(2){top:70%;left:15%;animation-duration:22s;}
-.floating-bg span:nth-child(3){top:40%;left:80%;animation-duration:20s;}
-.floating-bg span:nth-child(4){top:80%;left:60%;animation-duration:24s;}
-.floating-bg span:nth-child(5){top:30%;left:50%;animation-duration:19s;}
-.floating-bg span:nth-child(6){top:60%;left:75%;animation-duration:23s;}
+.floating-bg span:nth-child(1){top:10%;left:20%;}
+.floating-bg span:nth-child(2){top:70%;left:15%;}
+.floating-bg span:nth-child(3){top:40%;left:80%;}
+.floating-bg span:nth-child(4){top:80%;left:60%;}
+.floating-bg span:nth-child(5){top:30%;left:50%;}
+.floating-bg span:nth-child(6){top:60%;left:75%;}
 
 @keyframes freeBall{
 0%{transform:translate(0,0);}
@@ -73,6 +72,7 @@ justify-content:center;
 align-items:flex-start;
 padding:20px 15px 80px 15px;
 box-sizing:border-box;
+overflow-y:auto;
 }
 
 .content{
@@ -120,23 +120,9 @@ box-shadow:0 0 20px #5cc8ff,0 0 40px #9f7bff;
 
 /* ===== TEXTOS ===== */
 
-h1{
-font-size:30px;
-margin:15px 0 5px;
-}
-
-.subtitle{
-font-size:18px;
-font-weight:bold;
-margin-bottom:5px;
-}
-
-.creator-text{
-font-size:15px;
-opacity:.9;
-min-height:24px;
-margin-bottom:15px;
-}
+h1{font-size:30px;margin:15px 0 5px;}
+.subtitle{font-size:18px;font-weight:bold;margin-bottom:5px;}
+.creator-text{font-size:15px;opacity:.9;min-height:24px;margin-bottom:15px;}
 
 /* ===== VIDEO ===== */
 
@@ -171,50 +157,20 @@ justify-content:center;
 transition:.3s;
 }
 
-/* INSTAGRAM */
-.instagram{
-background:linear-gradient(90deg,#ff3cac,#d85eff);
-}
-.instagram:hover{
-transform:scale(1.05);
-box-shadow:0 0 15px #ff3cac,0 0 35px #d85eff;
-}
+.instagram{background:linear-gradient(90deg,#ff3cac,#d85eff);}
+.instagram:hover{transform:scale(1.05);box-shadow:0 0 15px #ff3cac,0 0 35px #d85eff;}
 
-/* FACEBOOK */
-.facebook{
-background:linear-gradient(90deg,#2f7fff,#54d2ff);
-}
-.facebook:hover{
-transform:scale(1.05);
-box-shadow:0 0 15px #2f7fff,0 0 35px #54d2ff;
-}
+.facebook{background:linear-gradient(90deg,#2f7fff,#54d2ff);}
+.facebook:hover{transform:scale(1.05);box-shadow:0 0 15px #2f7fff,0 0 35px #54d2ff;}
 
-/* TIKTOK */
-.tiktok{
-background:linear-gradient(90deg,#000,#333);
-}
-.tiktok:hover{
-transform:scale(1.05);
-box-shadow:0 0 15px #ffffff,0 0 30px #cccccc;
-}
+.tiktok{background:linear-gradient(90deg,#000,#333);}
+.tiktok:hover{transform:scale(1.05);box-shadow:0 0 15px #fff,0 0 30px #ccc;}
 
-/* LINKEDIN */
-.linkedin{
-background:linear-gradient(90deg,#0a66c2,#1da1ff);
-}
-.linkedin:hover{
-transform:scale(1.05);
-box-shadow:0 0 15px #0a66c2,0 0 35px #1da1ff;
-}
+.linkedin{background:linear-gradient(90deg,#0a66c2,#1da1ff);}
+.linkedin:hover{transform:scale(1.05);box-shadow:0 0 15px #0a66c2,0 0 35px #1da1ff;}
 
-/* YOUTUBE */
-.youtube{
-background:linear-gradient(90deg,#ff0000,#ff3b3b);
-}
-.youtube:hover{
-transform:scale(1.05);
-box-shadow:0 0 15px #ff0000,0 0 35px #ff3b3b;
-}
+.youtube{background:linear-gradient(90deg,#ff0000,#ff3b3b);}
+.youtube:hover{transform:scale(1.05);box-shadow:0 0 15px #ff0000,0 0 35px #ff3b3b;}
 
 .btn{
 margin-top:15px;
@@ -233,7 +189,27 @@ transform:scale(1.05);
 box-shadow:0 0 18px #ff3b3b,0 0 40px #ff0000;
 }
 
-/* ===== FOOTER MORADO ===== */
+/* ===== PUBLICIDAD ===== */
+
+.ad-title{font-size:26px;}
+
+.ad-logo{
+width:100%;
+max-width:260px;
+height:auto;
+margin:20px auto;
+display:block;
+border-radius:14px;
+transition:.3s;
+object-fit:contain;
+}
+
+.ad-logo:hover{
+transform:scale(1.05);
+box-shadow:0 0 20px #9f7bff;
+}
+
+/* ===== FOOTER ===== */
 
 .footer{
 text-align:center;
@@ -243,13 +219,7 @@ padding:25px 15px;
 background: radial-gradient(circle,#7a6dc4,#4b4f9e,#2b2b68);
 color:white;
 opacity:.85;
-font-weight:400;
 letter-spacing:.5px;
-}
-
-.footer strong{
-font-weight:600;
-letter-spacing:1px;
 }
 
 .footer::before{
@@ -262,7 +232,7 @@ margin:0 auto 15px auto;
 border-radius:2px;
 }
 
-/* ===== INDICADORES ===== */
+.footer strong{letter-spacing:1px;}
 
 .indicators{
 position:fixed;
@@ -274,17 +244,13 @@ gap:10px;
 }
 
 .dot{
-width:9px;
-height:9px;
-border-radius:50%;
+width:9px;height:9px;border-radius:50%;
 background:rgba(255,255,255,.4);
 transition:.3s;
 }
 
 .dot.active{
-width:24px;
-border-radius:20px;
-background:white;
+width:24px;border-radius:20px;background:white;
 }
 
 </style>
@@ -299,6 +265,7 @@ background:white;
 
 <div class="slider" id="slider">
 
+<!-- PÁGINA 1 -->
 <div class="page">
 <div class="content">
 <div class="container">
@@ -334,9 +301,11 @@ src="https://raw.githubusercontent.com/aalvarez6236-ux/PAGINA-LINK-BIO/main/cd92
 </div>
 </div>
 
+<!-- PÁGINA 2 -->
 <div class="page">
 <div class="content">
 <div class="container">
+
 <h1 class="ad-title">🔥 Publicidad</h1>
 
 <a href="https://creativetouchshop.com/" target="_blank" rel="noopener noreferrer">
@@ -345,6 +314,7 @@ src="https://raw.githubusercontent.com/aalvarez6236-ux/PAGINA-LINK-BIO/main/crop
 </a>
 
 <button class="btn" onclick="goTo(0)">⬅️ Volver</button>
+
 </div>
 </div>
 </div>
@@ -373,7 +343,7 @@ current=p;
 slider.style.transform=`translateX(-${p*100}vw)`;
 document.getElementById("dot0").classList.toggle("active",p===0);
 document.getElementById("dot1").classList.toggle("active",p===1);
-window.scrollTo({top:0,behavior:"instant"});
+window.scrollTo({top:0});
 }
 
 let startX=0,startY=0;
@@ -392,13 +362,7 @@ if(diffX<-80 && current===1) goTo(0);
 }
 });
 
-const texts=[
-"🎥 Creator",
-"🌍 Vida en Bélgica",
-"🔥 Motivación diaria",
-"✨ Afelandro vibes"
-];
-
+const texts=["🎥 Creator","🌍 Vida en Bélgica","🔥 Motivación diaria","✨ Afelandro vibes"];
 let i=0;
 setInterval(()=>{
 i=(i+1)%texts.length;
